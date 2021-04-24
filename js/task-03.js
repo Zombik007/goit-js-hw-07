@@ -22,7 +22,7 @@ const makeImagesMarkup = ({ url, alt }) => {
 };
 
 const galleryEl = document.querySelector('#gallery');
-const makeImagesList = images.map(makeImagesMarkup).join();
+const makeImagesList = images.map(makeImagesMarkup).join('');
 galleryEl.insertAdjacentHTML('afterbegin', makeImagesList);
 
 // Строчные стил

@@ -14,14 +14,16 @@ function onInputChange() {
 }
 
 function createBoxes(amount) {
+  let boxesArray = [];
   for (let i = 1; i <= amount; i++) {
     const boxesEl = document.createElement('div');
     boxesEl.style.backgroundColor = boxesRandomColor();
     boxesEl.style.width = i * 10 + 'px';
     boxesEl.style.height = i * 10 + 'px';
     boxesEl.style.margin = '10px';
-    boxes.appendChild(boxesEl);
+    boxesArray.push(boxesEl);
   }
+  boxes.append(...boxesArray);
 }
 
 function onBtnRenderClick() {
@@ -33,7 +35,9 @@ function onBtnDestroyClick() {
 }
 
 function boxesRandomColor() {
-  return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
-    Math.random() * 256,
-  )}, ${Math.floor(Math.random() * 256)})`;
+  return `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+}
+
+function randomNumber() {
+  return Math.floor(Math.random() * 256);
 }
